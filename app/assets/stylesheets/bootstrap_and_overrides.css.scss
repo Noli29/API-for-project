@@ -4,6 +4,16 @@
 @import "compass/css3/opacity";
 @import "compass/css3/border-radius";
 
+@media (min-width: 720px){
+  .container{
+    padding: 0 150px !important;
+  }
+}
+
+
+#footer {
+  margin-top: 60px;
+}
 
 #photos-list {
   padding: 0;
@@ -57,9 +67,7 @@
   @include transition-timing-function(ease-out);
   @include opacity(1);
 }
-#footer {
-  margin-top: 60px;
-}
+
 
   .line {
   color: #3fa8ff;

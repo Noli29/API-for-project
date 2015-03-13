@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 1 }
   validates :password_confirmation, presence: true
   validates_attachment :avatar,
-                      # :presence => true,
                        :size => { :in => 0..10.megabytes },
                        :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/}
 
