@@ -19,9 +19,6 @@ group :assets do
 
   gem 'jquery-fileupload-rails'
 
-  gem 'compass-rails'
-  gem 'compass'
-  gem 'compass-susy-plugin'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   #gem 'therubyracer', :platforms => :ruby

@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   belongs_to :role
   belongs_to :photo
+  belongs_to :post
 
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -22,6 +23,7 @@ class User < ActiveRecord::Base
   validates_attachment :avatar,
                        :size => { :in => 0..10.megabytes },
                        :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/}
+
 
 
 

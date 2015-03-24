@@ -1,33 +1,33 @@
 <% provide(:title, "Edit user") %>
 
 <div class="row">
- <!-- <div class="col-md-3 col-md-offset-4">-->
-    <h1 class="line1"> <center> Edit profile </center></h1>
+
+    <h class="line1"> <center> Edit profile </center></h>
     <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages' %>
-
+<br>
         <center>
-          <div style="margin-bottom: 25px;" class="  col-md-3 col-md-offset-0 input-group">
+          <div style="margin-bottom: 25px;" class="  col-md-4 col-md-offset-0 input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
           </div>
 
-          <div style="margin-bottom: 25px" class="col-md-3 col-md-offset-0 input-group">
+          <div style="margin-bottom: 25px" class="col-md-4 col-md-offset-0 input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <%= f.text_field :surname, class: "form-control", placeholder: "Surname" %>
           </div>
 
-          <div style="margin-bottom: 25px" class="col-md-3 col-md-offset-0 input-group">
+          <div style="margin-bottom: 25px" class="col-md-4 col-md-offset-0 input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
             <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
           </div>
 
-          <div style="margin-bottom: 25px" class="col-md-3 col-md-offset-0 input-group">
+          <div style="margin-bottom: 25px" class="col-md-4 col-md-offset-0 input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
             <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
           </div>
 
-          <div style="margin-bottom: 5px" class="col-md-3 col-md-offset-0 input-group">
+          <div style="margin-bottom: 5px" class="col-md-4 col-md-offset-0 input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
             <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password confirmation" %>
           </div>
@@ -43,8 +43,8 @@
                 <%= f.select :role_id, options_from_collection_for_select(Role.all, 'id', 'name')%>
               </div>
           <% end %>
-
-          <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
+<br>
+          <%= f.submit "Save changes", class: "btn btn-large btn-success", style: " background:#676AE8;" %>
         </center>
 
 

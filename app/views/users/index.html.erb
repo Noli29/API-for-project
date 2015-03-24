@@ -3,13 +3,11 @@
 
 <ul class="users">
   <section>
-
-
     <%=paginate  @users%>
     <br>
     <% @users.each do |user| %>
         <% if !user.super_admin? %>
-            <%#= image_tag user.avatar.url(:small) %>
+            <b style="color:#FFA07A">
             <% if user.admin?%>
                 <p>
                   Admin:
@@ -19,13 +17,13 @@
                 <%= user.name %>
              <% end %>
             <%= user.surname %>
-
-            <%= link_to 'Show', user,  class: "btn  btn-small btn-warning " %>
-            <%= link_to 'Edit',  edit_user_path(user) ,  class: "btn btn-small btn-success" %>
+            </b>
+            <%= link_to 'Show', user,  class: "btn  btn-small " %>|
+            <%= link_to 'Edit',  edit_user_path(user) ,  class: "btn btn-small " %>|
 
             <%= link_to 'Destroy', user, method: :delete,
                         data: { confirm: 'Are you sure?' },
-                        class: " btn btn-small btn-danger" %>
+                        class: " btn btn-small " %>
             <br>
             <%= user.email %>
             <br>
@@ -34,4 +32,8 @@
 
   </section>
 </ul>
+
+<div style="margin: 50px 0;">
+
+</div>
 
