@@ -1,7 +1,9 @@
-<textarea cols="30" rows="3" wrap="physical" placeholder="what's new" ></textarea>
-<form>
-  <input type="submit" value=" Send" onClick="AlertButton()">
-  <script>
-      function AlertButton() { window.alert("Сервер тимчасово недоступний. Залишайтесь з нами :)"); }
-  </script>
-</form>
+<h1>New post</h1>
+<div class="row">
+  <div class="large-8 columns">
+    <%= form_for(@post) do |f| %>
+        <%= f.text_area :post, rows: 5, placeholder: "Post"%>
+        <%= f.submit "create post", class: "btn btn-large btn-primary", style: "background: #000000;" %>
+    <% end %>
+  </div>
+</div>

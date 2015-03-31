@@ -9,14 +9,18 @@ class PostsController < ApplicationController
 
     def create
       @post = Post.new(params[:post])
+
       if @post.save
-        session[:post_id] = @post.id
-        flash[:success] = ""
-        redirect_to @post
+        @user = User.find(session[:user_id])
+        if @user.present?
+          @user.posts << @post
+          @user.save
+        end
       else
-        render 'new'
+        render "new"
       end
     end
+
 
     def destroy
       @post = Post.find(params[:id])
@@ -25,6 +29,12 @@ class PostsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to :back}
       end
+    end
+
+    private
+
+    def post_params
+      params.require(:post).permit(:post)
     end
 
 end

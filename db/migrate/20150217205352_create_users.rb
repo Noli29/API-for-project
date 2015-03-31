@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :password_hash
       t.string :password_salt
+      t.belongs_to :post, index: true
 
 
       t.timestamps

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150324170841) do
+ActiveRecord::Schema.define(:version => 20150330121454) do
 
   create_table "photos", :force => true do |t|
     t.string   "image_uid"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20150324170841) do
     t.string   "post"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20150324170841) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
+    t.integer  "post_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "role_id"

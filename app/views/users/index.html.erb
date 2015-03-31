@@ -1,5 +1,5 @@
 <% provide(:title, 'All users') %>
-<h1 style="color:#FFA07A ; font-size:55px;"> <center> All users </center> </h1>
+<h1 style="color:#000000 ; font-size:55px;"> <center> All users </center> </h1>
 
 <ul class="users">
   <section>
@@ -7,7 +7,7 @@
     <br>
     <% @users.each do |user| %>
         <% if !user.super_admin? %>
-            <b style="color:#FFA07A">
+            <b style="color:#000000">
             <% if user.admin?%>
                 <p>
                   Admin:
