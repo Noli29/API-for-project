@@ -153,12 +153,14 @@
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v3.2.2, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.3.0, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.9.0, RVM: ruby-1.9.3-p550) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="daemons (v1.1.9, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v1.4.0, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.2.5, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="docile (v1.1.5, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dragonfly (v1.0.7, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dragonfly-s3_data_store (v1.0.4, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, RVM: ruby-1.9.3-p550) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="eventmachine (v1.0.4, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="excon (v0.44.3, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.2.2, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="factory_girl (v4.5.0, RVM: ruby-1.9.3-p550) [gem]" level="application" />
@@ -240,6 +242,7 @@
     <orderEntry type="library" scope="PROVIDED" name="simplecov-html (v0.8.0, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="slop (v3.6.0, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.2.3, RVM: ruby-1.9.3-p550) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thin (v1.6.3, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.19.1, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v1.4.1, RVM: ruby-1.9.3-p550) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timers (v4.0.1, RVM: ruby-1.9.3-p550) [gem]" level="application" />

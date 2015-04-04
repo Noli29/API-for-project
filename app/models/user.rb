@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   has_attached_file :avatar,  :styles => { :small => "150x150>" }
 
 
-
   before_save { |user| user.email = email.downcase }
   before_save :encrypt_password
 

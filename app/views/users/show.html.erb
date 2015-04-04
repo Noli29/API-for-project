@@ -1,33 +1,65 @@
 <% provide(:title, @user.name) %>
 <div class="row" >
-  <aside class="span4">
+  <div class="span4">
     <section>
       <h1 style="font-size: 25px">
-          <%= image_tag @user.avatar.url(:small) %>
-        <hr align="left" style="
-                background-color: #000000;
-                width: 200px;
-                height: 2px;">
-          <%= @user.name %>
-          <%= @user.surname %>
+        <%=  image_tag @user.avatar.url(:small) %>
+        <hr align="left" style=" background-color: #000000; width: 200px;height: 2px;">
+        <%= @user.name %>
+        <%= @user.surname %>
       </h1>
-      <%= link_to 'post', new_post_path ,class: "btn btn-large btn-primary", style: "background: #000000;" %>
-      <div style="position:absolute;top: 125px; left: 660px;">
 
+      <div style="position:absolute;top: 110px; left: 668px;">
+        <%= link_to 'create post',  {}, remote: true, data: {toggle:'modal', target:'#addPostModal'}%>
+        <br>
+        Posts:<br>
+        <% @posts.each do |post| %>
+
+            <%= post.post %>
+            <%= link_to 'Destroy', post, method: :delete,
+                        data: { confirm: 'Are you sure?' },
+                        class: " btn btn-small " %>
+            <br>
+        <%end %>
       </div>
 
       <% if current_user.admin? %>
-          <div style= "float:right;margin-right:30%;">
+          <div style= "float:left;margin-right:30%;">
             <%= link_to 'Back', users_path, class: "btn btn-small btn-primary" %>
           </div>
       <% end %>
 
-
-
-
     </section>
-  </aside>
+  </div>
 </div>
 <div style="margin: 50px 0;">
-
 </div>
+<div id="addPostModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><h1> New post  <span class="glyphicon glyphicon-cloud"></span> </h1></h4>
+      </div>
+      <%= form_for @post = Post.new , remote: true  do |f| %>
+          <div class="modal-body">
+            <div class="large-8 columns">
+              <%= f.text_area :post, rows: 3, placeholder: "Post"%>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit "create post", class: "btn btn-large btn-primary", style: "background: #000000;" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+$("#new_post").on("submit",function(){
+    $("#addPostModal").modal("hide");
+    $("#post_post").val("");
+    location.reload();
+});
+</script>

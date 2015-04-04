@@ -7,16 +7,14 @@ gem 'rails', '3.2.13'
 
 #gem 'sqlite3'
 gem 'mysql2'
-
+gem 'thin'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'bootstrap-sass', '= 3.1.1.0'
-
   gem 'kaminari'
-
   gem 'jquery-fileupload-rails'
 
 
@@ -33,7 +31,7 @@ gem 'pry'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-
+gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'

@@ -1,8 +1,8 @@
 class Post < ActiveRecord::Base
    attr_accessible :post
 
-  belongs_to :user
+   validates :post, presence: true, :length => { :maximum => 140 }
 
-   #validates :post, length: {maximum: 140}, format: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+   belongs_to :user
 
 end
