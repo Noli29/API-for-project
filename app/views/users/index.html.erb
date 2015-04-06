@@ -6,28 +6,26 @@
     <%=paginate  @users%>
     <br>
     <% @users.each do |user| %>
-        <% if !user.super_admin? %>
-            <b style="color:#000000">
-            <% if user.admin?%>
-                <p>
-                  Admin:
-                  <%= user.name %>
-                </p>
-                <% else %>
-                <%= user.name %>
-             <% end %>
-            <%= user.surname %>
-            </b>
-            <%= link_to 'Show', user,  class: "btn  btn-small " %>|
-            <%= link_to 'Edit',  edit_user_path(user) ,  class: "btn btn-small " %>|
 
-            <%= link_to 'Destroy', user, method: :delete,
-                        data: { confirm: 'Are you sure?' },
-                        class: " btn btn-small " %>
-            <br>
+            <b style="color:#000000">
+              <% if !user.super_admin? %>
+                  <% if user.admin?%>
+                      <p>
+                        Admin:
+                        <%= user.name %>
+                       </p>
+                   <% else %>
+                        <%= user.name %>
+                  <% end %>
+              <% end %>
+              <%= user.surname %>
+            </b>
+        <% if !user.super_admin? %>
+            <%= link_to 'Show', user,  class: "btn  btn-small btn-primary"  %><br>
             <%= user.email %>
+
             <br>
-        <% end %>
+        <%end %>
     <%end%>
 
   </section>

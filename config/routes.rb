@@ -1,5 +1,9 @@
 Lalala::Application.routes.draw do
 
+  get "messages/index"
+  get "messages/show"
+  get "messages/new"
+
   get "signout" => "sessions#destroy"
   get "signin" => "sessions#new"
   get "signup" => "users#new", :as => "signup"
@@ -12,8 +16,7 @@ Lalala::Application.routes.draw do
 
   resources :sessions
 
-  resources :photos, only: [:new, :create]
-  get '/photos/new_multiple', to: 'photos#new_multiple', as: :new_photo_multiple
+  resources :messages
 
 
   # The priority is based upon order of creation:

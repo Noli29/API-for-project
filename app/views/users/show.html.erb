@@ -4,6 +4,7 @@
     <section>
       <h1 style="font-size: 25px">
         <%=  image_tag @user.avatar.url(:small) %>
+
         <hr align="left" style=" background-color: #000000; width: 200px;height: 2px;">
         <%= @user.name %>
         <%= @user.surname %>
@@ -44,7 +45,7 @@
       <%= form_for @post = Post.new , remote: true  do |f| %>
           <div class="modal-body">
             <div class="large-8 columns">
-              <%= f.text_area :post, rows: 3, placeholder: "Post"%>
+              <%= f.text_area :post, rows: 4,class:"col-sm-12",style:"resize:none", maxlength:99 ,placeholder: "Post"%>
             </div>
             <div class="clear"></div>
           </div>
@@ -59,7 +60,9 @@
 <script>
 $("#new_post").on("submit",function(){
     $("#addPostModal").modal("hide");
-    $("#post_post").val("");
-    location.reload();
+    setTimeout(function() {
+        $("#post_post").val("");
+        location.reload();
+    },800);
 });
 </script>

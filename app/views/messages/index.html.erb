@@ -1,0 +1,15 @@
+<right></right><%= link_to "New message", new_message_path, class: "btn btn-large btn-primary ", style: "margin-left:5px; background: #000000;" %>
+<div class="section-container auto" data-section>
+  <section <% if params[:sent] !="1" %> class="active" <%end%> >
+    <!--<p class="title" data-section-title><a href="#panel1">Received</a></p>-->
+    <div class="content" data-section-content>
+      <%= render "received" %>
+    </div>
+  </section>
+  <section <% if params[:sent] == "1" %> class="active" <%end%> >
+    <!--<p class="title" data-section-title><a href="#panel2">Sent</a></p>-->
+    <div class="content" data-section-content>
+      <%= render "sent" %>
+    </div>
+  </section>
+</div>

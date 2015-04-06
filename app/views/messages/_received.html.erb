@@ -1,0 +1,19 @@
+<h4>Received messages</h4>
+<% if @messages.empty? %>
+    You have not received any message
+<% end %>
+<% @messages.each do |m| %>
+    <div class="row">
+      <div class="large-10 columns">
+        <%= link_to message_path(m) do %>
+            <div class="message">
+              <% unless m.message_read? %><div class="unread"></div><% end %>
+              from: <%= content_tag( :span, m.sender.full_name, :class => "name") %><br>
+              subject: <%= content_tag( :span, m.subject, :class => "subject") %>
+              <br/> <br/>
+              <%= content_tag( :p, m.body) %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+<% end %>

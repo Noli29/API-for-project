@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="large-10 columns">
+    <div class="large-message">
+      <% if @message.recipient == current_user %>
+          <%= content_tag( :span, @message.sender.full_name, :class => "name") %>
+      <% else %>
+          <%= content_tag( :span, @message.recipient.full_name, :class => "name") %>
+      <% end %>
+      <%= content_tag( :span, @message.subject, :class => "subject")%>
+      <br/>
+      <%= content_tag( :p, @message.body)%>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="large-10 columns">
+    <%= form_for Message.new do |f| %>
+        <%= f.hidden_field :subject, :value => @message.subject%>
+        <% recipient = @message.recipient == current_user ? @message.sender : @message.recipient %>
+        <%= f.hidden_field :recipient_id, :value => recipient.id%>
+        <%= f.text_area :body, :rows => 3, :placeholder => "Message" %>
+        <%= f.submit "Respond", :class => "small button success right" %>
+    <% end %>
+  </div>
+</div>

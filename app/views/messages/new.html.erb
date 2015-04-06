@@ -1,0 +1,11 @@
+<h1>New messages</h1>
+<div class="row">
+  <div class="large-8 columns">
+    <%= form_for @message do |f| %>
+        <%= f.text_field :subject, :placeholder => "Subject"%>
+        <%= f.select :recipient_id, User.all.collect{ |u| [u.full_name, u.id]}, {:include_blank => "Select a recipient"} %>
+        <br><%= f.text_area :body, :rows => 4, style:"resize:none",:placeholder => "Message" %>
+        <%= f.submit "Submit", :class => "small button success" %>
+    <% end %>
+  </div>
+</div>

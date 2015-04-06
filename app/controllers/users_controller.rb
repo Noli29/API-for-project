@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order("name").page(params[:page]).per(4)
+    @users = User.order("name").page(params[:page]).per(7)
   end
 
   def create
