@@ -10,9 +10,11 @@ Lalala::Application.routes.draw do
 
   root to: "static_pages#home"
 
-  resources :users
 
-  resources :posts
+  namespace :api do
+    resources :posts, except: [:new, :edit]
+    resources :users, except: [:new, :edit]
+  end
 
   resources :sessions
 

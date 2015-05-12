@@ -10,21 +10,23 @@
         <%= @user.surname %>
       </h1>
 
-      <div style="position:absolute;top: 110px; left: 668px;">
+      <div style="position:absolute;top: 110px; left: 668px; text-overflow:ellipsis;">
         <%= link_to 'create post',  {}, remote: true, data: {toggle:'modal', target:'#addPostModal'}%>
         <br>
         Posts:<br>
+
         <% @posts.each do |post| %>
 
             <%= post.post %>
             <%= link_to 'Destroy', post, method: :delete,
                         data: { confirm: 'Are you sure?' },
                         class: " btn btn-small " %>
-            <br>
+            <br><p style="text-overflow: clip"></p>
         <%end %>
+
       </div>
 
-      <% if current_user.admin? %>
+      <% if current_user%>
           <div style= "float:left;margin-right:30%;">
             <%= link_to 'Back', users_path, class: "btn btn-small btn-primary" %>
           </div>
@@ -40,7 +42,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><h1> New post  <span class="glyphicon glyphicon-cloud"></span> </h1></h4>
+        <h4 class="modal-title"><h1> New post  <span class="glyphicon glyphicon-paperclip"></span> </h1></h4>
       </div>
       <%= form_for @post = Post.new , remote: true  do |f| %>
           <div class="modal-body">

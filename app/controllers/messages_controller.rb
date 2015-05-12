@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  # before_filter :check_login
+
 
   def index
     @messages = params[:sent] == "1" ? current_user.sent_messages : current_user.received_messages
@@ -19,9 +19,5 @@ class MessagesController < ApplicationController
     redirect_to messages_path(:sent => 1)
   end
 
-  # private
-  # def check_login
-  #   redirect_to root_url and return unless logged_in?
-  # end
 
 end
