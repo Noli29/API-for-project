@@ -11,8 +11,15 @@ module Api
       @user = User.where(id: params[:id]).first
       respond_to do |format|
         format.json {
-          render json: { error_message: "Not found", status: 404 } and return unless @post
+          render json: { error_message: "Not found", status: 404 } and return unless @user
         }
+      end
+    end
+
+    def create
+      @user =  User.create(params[:post])
+      if @user.save
+        render json: @post, status: 201, location: @user
       end
     end
   end

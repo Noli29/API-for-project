@@ -16,5 +16,12 @@ module Api
         }
       end
     end
+
+    def create
+      @post =  Post.create(params[:post])
+      if @post.save
+        render json: @post, status: 201, location: @post
+      end
+    end
   end
 end
