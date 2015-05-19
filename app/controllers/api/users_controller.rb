@@ -1,5 +1,8 @@
 module Api
   class UsersController < ApplicationController
+
+    skip_before_filter :verify_authenticity_token
+
     def index
       @users = User.all
       respond_to do |format|
@@ -17,9 +20,11 @@ module Api
     end
 
     def create
-      @user =  User.create(params[:post])
+      @user =  User.create(params[:user])
       if @user.save
-        render json: @post, status: 201, location: @user
+        render json: @user , status: 201
+      else
+        render json: @user.errors, status: 422
       end
     end
   end

@@ -1,6 +1,8 @@
 module Api
   class PostsController < ApplicationController
 
+    skip_before_filter :verify_authenticity_token
+
     def index
       @posts = Post.all
       respond_to do |format|
@@ -20,7 +22,9 @@ module Api
     def create
       @post =  Post.create(params[:post])
       if @post.save
-        render json: @post, status: 201, location: @post
+        render json: @post , status: 201
+      else
+        render json: @post.errors, status: 422
       end
     end
   end
