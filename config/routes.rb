@@ -14,6 +14,7 @@ Lalala::Application.routes.draw do
   namespace :api do
     resources :posts, except: [:new, :edit]
     resources :users, except: [:new, :edit]
+    resources :messages, except: [:new, :edit]
   end
 
   resources :sessions

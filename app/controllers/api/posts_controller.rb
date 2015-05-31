@@ -27,5 +27,14 @@ module Api
         render json: @post.errors, status: 422
       end
     end
+
+    def update
+      @post = Post.where(id: params[:id]).first
+      if @post.update(post_params)
+        render json: @post, status: 200
+      else
+        render json: @post.errors, status: 422
+      end
+    end
   end
 end
