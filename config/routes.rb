@@ -1,9 +1,5 @@
 Lalala::Application.routes.draw do
 
-  get "messages/index"
-  get "messages/show"
-  get "messages/new"
-
   get "signout" => "sessions#destroy"
   get "signin" => "sessions#new"
   get "signup" => "users#new", :as => "signup"
@@ -14,10 +10,9 @@ Lalala::Application.routes.draw do
   namespace :api do
     resources :posts, except: [:new, :edit]
     resources :users, except: [:new, :edit]
-    resources :messages, except: [:new, :edit]
+    resources :messages, except: [:edit, :update]
   end
 
   resources :sessions
-  resources :messages
 
 end

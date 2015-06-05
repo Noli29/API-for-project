@@ -19,5 +19,4 @@ class MessagesController < ApplicationController
     redirect_to messages_path(:sent => 1)
   end
 
-
 end

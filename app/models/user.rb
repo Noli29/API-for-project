@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   before_save { |user| user.email = email.downcase }
   before_save :encrypt_password
+  before_create { generate_token(:auth_token) }
 
   belongs_to :role
   has_many :posts
@@ -17,7 +18,7 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence:   true,
             format:     { with: VALID_EMAIL_REGEX },
-             uniqueness: { case_sensitive: false }
+            uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 1 }
   validates :password_confirmation, presence: true
   validates_attachment :avatar,
@@ -31,7 +32,6 @@ class User < ActiveRecord::Base
   def super_admin?
     ["super_admin"].include? self.role.try(:name)
   end
-
 
   def admin?
     ["admin", "super_admin"].include? self.role.try(:name)
@@ -50,7 +50,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
@@ -58,4 +57,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  private
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
 end

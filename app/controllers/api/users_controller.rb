@@ -2,6 +2,7 @@ module Api
   class UsersController < ApplicationController
 
     skip_before_filter :verify_authenticity_token
+    before_filter :authenticate
 
     def index
       @users = User.all
@@ -26,6 +27,29 @@ module Api
       else
         render json: @user.errors, status: 422
       end
+    end
+
+    def update
+      @user = User.where(id: params[:id]).first
+      if @user.update_attributes(params[:user])
+        render json: @user, status: 200
+      else
+        render json: @user.errors, status: 422
+      end
+    end
+
+    def authenticate
+      authenticate_token || render_unauthorized
+    end
+
+    def authenticate_token
+      authenticate_with_http_token do |token, options|
+        User.where(auth_token: token).first
+      end
+    end
+
+    def render_unauthorized
+      render json: "Bad credentials", status: 401
     end
   end
 end

@@ -1,6 +1,8 @@
 module Api
   class MessagesController < ApplicationController
 
+    skip_before_filter :verify_authenticity_token
+
     def index
       @messages = Message.all
       respond_to do |format|

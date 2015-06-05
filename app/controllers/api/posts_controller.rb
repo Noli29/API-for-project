@@ -2,6 +2,7 @@ module Api
   class PostsController < ApplicationController
 
     skip_before_filter :verify_authenticity_token
+    before_filter :authenticate
 
     def index
       @posts = Post.all
@@ -28,13 +29,24 @@ module Api
       end
     end
 
-    def update
+    def destroy
       @post = Post.where(id: params[:id]).first
-      if @post.update(post_params)
-        render json: @post, status: 200
-      else
-        render json: @post.errors, status: 422
+      @post.destroy
+      render nothing: true, status: 204
+    end
+
+    def authenticate
+      authenticate_token || render_unauthorized
+    end
+
+    def authenticate_token
+      authenticate_with_http_token do |token, options|
+        User.where(auth_token: token).first
       end
+    end
+
+    def render_unauthorized
+      render json: "Bad credentials", status: 401
     end
   end
 end
