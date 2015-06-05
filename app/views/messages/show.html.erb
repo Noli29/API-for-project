@@ -2,7 +2,7 @@
   <div class="large-10 columns">
     <div class="large-message">
       <% if @message.recipient == current_user %>
-          <%= content_tag( :span, @message.sender.full_name, :class => "name") %>
+          <%= content_tag( :span, @message.sender.full_name, :class => "name") %><br>
       <% else %>
           <%= content_tag( :span, @message.recipient.full_name, :class => "name") %>
       <% end %>
