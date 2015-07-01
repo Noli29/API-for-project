@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :surname,  :email, :password,  :password_confirmation, :role_id,  :avatar
   attr_accessor :password, :password_confirmation
-  has_attached_file :avatar,  :styles => { :small => "150x150>" }
+  has_attached_file :avatar,  :styles => {  }
 
   has_private_messages
 
@@ -11,8 +11,10 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
   before_create { generate_token(:auth_token) }
 
+
   belongs_to :role
   has_many :posts
+
 
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
